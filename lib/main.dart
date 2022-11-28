@@ -14,22 +14,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Column(
-        mainAxisAlignment:MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        children: [
-          Container(
-            color: Colors.redAccent,
-            width: 100,
-            height: 100,
-          ),
+      home: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [Container(
+          color: Colors.redAccent,
+          width: 100,
+          height: 100,
+        ),
           Container(
             color: Colors.blue,
             width: 50,
             height: 50,
-          ),
-        ],
+          ),],
+
       ),
     );
   }
