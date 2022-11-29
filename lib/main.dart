@@ -21,12 +21,12 @@ class MyApp extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            Task('Aprender Flutter'),
-            Task('Aprender Italiano'),
-            Task('Adquirir o shape inexplicavel'),
-            Task('Reconquistar Jerusalem'),
-            Task('Lamentar pela Queda de Constantinopla'),
-            Task('Reconstruir Constantinopla'),
+            Task('Aprender Flutter','https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large'),
+            Task('Aprender Italiano','https://thumbs.dreamstime.com/b/vetor-de-bandeira-italiano-nacional-do-pa%C3%ADs-it%C3%A1lia-wallpaper-italiana-pano-fundo-da-196750105.jpg'),
+            Task('Adquirir o shape inexplicavel','https://media.gettyimages.com/id/3238896/pt/foto/austrian-born-bodybuilder-arnold-schwarzenegger-points-one-hand-out-as-he-flexes-his-torso-on.jpg?s=612x612&w=gi&k=20&c=cJtR1oJnFXI7czR2hdd-wE9-T7WFeMflJn8AFQAkDLw='),
+            Task('Reconquistar Jerusalem','https://blogdoenem.com.br/wp-content/uploads/2016/07/1-1.jpg'),
+            Task('Lamentar pela Queda de Constantinopla','https://s1.static.brasilescola.uol.com.br/be/conteudo/images/tomada-constantinopla-por-mehmed-ii-56bcbc2c8d88b.jpg'),
+            Task('Reconstruir Constantinopla','https://s2.glbimg.com/ARg-ud6GCQlFLcGx1JxTBHRlCok=/e.glbimg.com/og/ed/f/original/2019/11/01/constantinopla.jpg'),
           ],
         ),
         floatingActionButton: FloatingActionButton(onPressed: () {}),
@@ -37,8 +37,9 @@ class MyApp extends StatelessWidget {
 
 class Task extends StatefulWidget {
   final String nome;
+  final String foto;
 
-  const Task(this.nome, {Key? key}) : super(key: key);
+  const Task(this.nome,this.foto, {Key? key}) : super(key: key);
 
   @override
   State<Task> createState() => _TaskState();
@@ -69,17 +70,38 @@ class _TaskState extends State<Task> {
                       Container(
                         color: Colors.black26,
                         height: 100,
-                        width: 72,
+                        width: 110,
+                        child: Image.network(
+                          widget.foto,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      Container(
-                          width: 200,
-                          child: Text(
-                            widget.nome,
-                            style: TextStyle(
-                              fontSize: 24,
-                              overflow: TextOverflow.visible,
-                            ),
-                          )),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                              width: 200,
+                              child: Text(
+                                widget.nome,
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  overflow: TextOverflow.visible,
+                                ),
+                              )),
+                          Row(
+                            children: [
+                              Icon(Icons.star,size: 15,color: Colors.blue,),
+                              Icon(Icons.star,size: 15,color: Colors.blue,),
+                              Icon(Icons.star,size: 15,color: Colors.blue,),
+                              Icon(Icons.star,size: 15,color: Colors.blue[100],),
+                              Icon(Icons.star,size: 15,color: Colors.blue[100],),
+
+                            ],
+                          )
+
+                        ],
+                      ),
                       Container(
                         height: 52,
                         width: 52,
