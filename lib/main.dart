@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          leading: Container(),
           title: Text('Tarefas'),
         ),
         body: ListView(
@@ -79,15 +80,29 @@ class _TaskState extends State<Task> {
                               overflow: TextOverflow.visible,
                             ),
                           )),
-                      ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              nivel++;
-                            });
+                      Container(
+                        height: 52,
+                        width: 52,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                nivel++;
+                              });
 
-                            print(nivel);
-                          },
-                          child: Icon(Icons.arrow_drop_up))
+                              print(nivel);
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Icon(Icons.arrow_drop_up),
+                                Text(
+                                  'UP',
+                                  style: TextStyle(fontSize: 12),
+                                )
+                              ],
+                            )),
+                      )
                     ],
                   ),
                 ),
@@ -99,9 +114,10 @@ class _TaskState extends State<Task> {
                       child: Container(
                         child: LinearProgressIndicator(
                           color: Colors.white,
-                          value: nivel/10,
+                          value: nivel / 10,
                         ),
-                      width: 200,),
+                        width: 200,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(12),
