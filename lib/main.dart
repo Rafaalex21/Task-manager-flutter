@@ -14,84 +14,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(
-        color: Colors.black54,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Container(
-                  color: Colors.redAccent,
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  color: Colors.blue,
-                  width: 50,
-                  height: 50,
-                ),
-              ],
-            ),
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Container(
-                  color: Colors.blue,
-                  width: 100,
-                  height: 100,
-                ),
-                Container(
-                  color: Colors.redAccent,
-                  width: 50,
-                  height: 50,
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  color: Colors.cyanAccent,
-                  height: 50,
-                  width: 50,
-                ),
-                Container(
-                  color: Colors.pink,
-                  height: 50,
-                  width: 50,
-                ),
-                Container(
-                  color: Colors.deepPurpleAccent,
-                  height: 50,
-                  width: 50,
-                ),
-              ],
-            ),
-            Container(
-              color: Colors.amberAccent,
-              height: 30,
-              width: 300,
-              child: Text(
-                'Yellow Diamond',
-                style: TextStyle(
-                  color: Colors.lightBlue,
-                  fontSize: 28,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                print('voce apertou o botão');
-              },
-              child: Text('Aperte o botão!'),
-            )
-          ],
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Tarefas'),
         ),
+        body: Container(
+          child: Stack(
+            children: [
+              Container(color: Colors.blue,height: 140,),
+              Container(color: Colors.white,height: 100,child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(color: Colors.black,height: 100,width: 72,),Text('Aprender Flutter'),
+                  ElevatedButton(onPressed: (){}, child: Icon(Icons.arrow_drop_up))
+                ],
+              ),),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton( onPressed:(){}),
       ),
     );
   }
