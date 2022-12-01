@@ -1,3 +1,4 @@
+import 'package:first_flutter_project/screens/form_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/Initial_Screen.dart';
 
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: InitialScreen(),
+      home: const FormScreen(),
     );
   }
 }
