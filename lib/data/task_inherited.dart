@@ -2,12 +2,15 @@
 import 'package:first_flutter_project/components/Task.dart';
 import 'package:flutter/material.dart';
 
+
+
 class TaskInherited extends InheritedWidget {
   TaskInherited({
     Key? key,
     required Widget child,
   }) : super(key: key, child: child);
-  final List<Task> tasklist = [Task('Aprender Flutter', 'assets/images/Eu7m692XIAEvxxP.png', 2),
+
+  final List<Task> taskList =[Task('Aprender Flutter', 'assets/images/Eu7m692XIAEvxxP.png', 2),
     Task(
         'Aprender Italiano',
         'assets/images/vetor-de-bandeira-italiano-nacional-do-país-itália-wallpaper-italiana-pano-fundo-da-196750105.jpg',
@@ -21,18 +24,19 @@ class TaskInherited extends InheritedWidget {
         1),
     Task('Reconstruir Constantinopla',
         'assets/images/constantinopla.webp', 5),];
-  void newTask(String name,String photo, int difficulty){
-    tasklist.add(Task(name, photo, difficulty));
+  void newTask(String name, String photo,int difficulty){
+    taskList.add(Task(name, photo, difficulty));
   }
 
   static TaskInherited of(BuildContext context) {
-    final TaskInherited? result = context.dependOnInheritedWidgetOfExactType<TaskInherited>();
+    final TaskInherited? result =
+    context.dependOnInheritedWidgetOfExactType<TaskInherited>();
     assert(result != null, 'No TaskInherited found in context');
     return result!;
   }
 
   @override
   bool updateShouldNotify(TaskInherited oldWidget) {
-    return oldWidget.tasklist.length != tasklist.length;
+    return oldWidget.taskList.length != taskList.length;
   }
 }
