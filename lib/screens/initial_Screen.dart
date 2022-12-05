@@ -96,7 +96,7 @@ class _InitialScreenState extends State<InitialScreen> {
                 taskContext: context,
               ),
             ),
-          );
+          ).then((value) => setState((){print('Recarregando a tela');}));
         },
         child: const Icon(Icons.add),
       ),
